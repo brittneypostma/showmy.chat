@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600&family=Roboto:wght@400;700&display=swap');
+
+:root {
+	--white: #fff;
+	--light-blue: #e8f4f4;
+	--medium-blue: #465881;
+	--mint: #aeeade;
+	--caribbean: #00e0ff;
+	--blue: #5fc7e4;
+	--light-teal: #68d2c8;
+	--teal: #036c8b;
+	--yellow: #e5a91e;
+	--navy: #1b2a49;
+	--gray: #333;
+	--green: #4b9139;
+	--black: #000;
+	--primary: var(--white);
+	--secondary: var(--mint);
+	--text-color: var(--teal);
+	--accent-color: var(--green);
+	--about-text: var(--teal);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	overflow: hidden;
+	height: 100vh;
+	margin-top: 0;
+}
+
+/* Style the entire list of messages */
+[data-twitch-chat] {
+	font-family: Quicksand, sans-serif;
+	font-weight: 100;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+
+	/* This is the part that adds new messages to the bottom and lifts up old messages */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 1em;
+}
+
+/* Style an individual message list item (this includes sender, reply snippets, etc) */
+[data-twitch-message] {
+	/* Message item styles here */
+}
+
+/* Mod emoji ROLES: broadcaster(self) mod subscriber founder vip */
+[data-twitch-sender-roles~='mod'] .twitch-chat-sender::before {
+	content: '🚨🚨';
+}
+
+[data-twitch-sender-roles~='broadcaster'] .twitch-chat-sender::before {
+	content: '🌊';
+}
+
+/* Style snippet of replied-to messages */
+[data-twitch-message-reply] {
+	display: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* Style the sender's username in each message item */
+.twitch-chat-sender {
+	font-family: Pacifico, sans-serif;
+	color: var(--twitch-sender-color, white);
+}
+
+/* Style the message contents themselves */
+.twitch-chat-message {
+	/* Message contents styles here */
+
+	background-color: teal;
+	word-break: break-word;
+}
+
+/* Style chat emotes */
+[data-twitch-emote] {
+	width: 1.2em;
+}
+
+/* Change specific channel emote */
+
+/* [data-twitch-emote^='brittn' i] {
+	width: 5rem;
+} */
+
+[data-twitch-mentioned-user] {
+	background: none;
+	font-weight: 600;
+	color: inherit;
+}
